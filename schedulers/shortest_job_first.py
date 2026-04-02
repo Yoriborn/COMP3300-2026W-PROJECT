@@ -1,5 +1,5 @@
 # ----- Object Imports ----- #
-from utilitys.helper import Help
+from utilitys.record import Help
 
 # ----- Support Functions ----- #
 def SJF_Keys(job):
