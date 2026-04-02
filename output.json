@@ -1,0 +1,34 @@
+{
+  "policy": "RR",
+  "gantt": [
+    {
+      "pid": "A",
+      "start": 0,
+      "end": 2
+    },
+    {
+      "pid": "B",
+      "start": 2,
+      "end": 4
+    },
+    {
+      "pid": "C",
+      "start": 4,
+      "end": 6
+    }
+  ],
+  "metrics": {
+    "turnaround": {
+      "A": 11,
+      "B": 4,
+      "C": 8
+    },
+    "waiting": {
+      "A": 5,
+      "B": 2,
+      "C": 5
+    },
+    "avg_turnaround": 7.67,
+    "avg_waiting": 4.0
+  }
+}
