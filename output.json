@@ -10,11 +10,6 @@
       "pid": "B",
       "start": 2,
       "end": 4
-    },
-    {
-      "pid": "C",
-      "start": 4,
-      "end": 6
     }
   ],
   "metrics": {

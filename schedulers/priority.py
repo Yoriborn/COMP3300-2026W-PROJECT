@@ -23,13 +23,13 @@ def P(jobs):
 
         # [OPTION 2]: If no jobs available, move 'time' forward to next 'arrival' time.
         if not available:
-            next_arrival = jobs[0]["arrival"]
+            fastfoward = jobs[0]["arrival"]
 
             for job in jobs:
-                if job["arrival"] < next_arrival:
-                    next_arrival = job["arrival"]
+                if job["arrival"] < fastfoward:
+                    fastfoward = job["arrival"]
 
-            time = next_arrival
+            time = fastfoward
             continue
 
         # [STEP 2]: Sort jobs by 'priority' number first, 'pid' second.

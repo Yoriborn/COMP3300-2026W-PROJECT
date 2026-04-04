@@ -15,6 +15,7 @@ def SJF(jobs):
     # [STEP 1]: Start a while loop until all jobs are finished.
     while jobs:
         available = []
+        
 
         # [OPTION 1]: Find jobs that arrive before or at current 'time' & append them to the 'available' list.
         for job in jobs:
@@ -23,13 +24,13 @@ def SJF(jobs):
 
         # [OPTION 2]: If no jobs available, move 'time' forward to next 'arrival' time.
         if not available:
-            next_arrival = jobs[0]["arrival"]
+            fastfoward = jobs[0]["arrival"]
 
             for job in jobs:
-                if job["arrival"] < next_arrival:
-                    next_arrival = job["arrival"]
+                if job["arrival"] < fastfoward:
+                    fastfoward = job["arrival"]
 
-            time = next_arrival
+            time = fastfoward
             continue
 
         # [STEP 2]: Sort jobs by 'burst' time first, 'pid' second.

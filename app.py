@@ -13,21 +13,21 @@ def Metrics(jobs):
     turnaround = {}
     waiting = {}
 
-    for j in jobs:
-        t = j["completion"] - j["arrival"]
-        w = t - j["burst"]
+    for job in jobs:
+        TAT = job["completion"] - job["arrival"]    # TAT = Turnaround Time
+        WT = TAT - job["burst"]                     #  WT = Waiting Time
 
-        turnaround[j["pid"]] = t
-        waiting[j["pid"]] = w
+        turnaround[job["pid"]] = TAT
+        waiting[job["pid"]] = WT
 
-    avg_t = sum(turnaround.values()) / len(jobs)
-    avg_w = sum(waiting.values()) / len(jobs)
+    avg_TAT = sum(turnaround.values()) / len(jobs)
+    avg_WT = sum(waiting.values()) / len(jobs)
 
     return {
         "turnaround" : turnaround,
         "waiting" : waiting,
-        "avg_turnaround" : round(avg_t, 2),
-        "avg_waiting" : round(avg_w, 2)
+        "avg_turnaround" : round(avg_TAT, 2),
+        "avg_waiting" : round(avg_WT, 2)
     }
 
 def Main():

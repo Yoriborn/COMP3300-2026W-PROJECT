@@ -12,3 +12,5 @@ def Help(job, time, gantt):
     # [STEP 3]: Create and add a 'completion' time to the job.
     job["completion"] = end
     time = end
+
+    return time
