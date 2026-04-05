@@ -1,5 +1,5 @@
 # ----- Object Imports ----- #
-from utilitys.record import Help
+from Utils.record import Calculate
 
 # ----- Support Functions ----- #
 def FIFO_Keys(job):
@@ -22,7 +22,7 @@ def FIFO(jobs):
         if time < job["arrival"]:
             time = job["arrival"]
 
-        # [STEP 4]: Run Help function from utilitys.
-        time = Help(job, time, gantt)
+        # [STEP 4]: Run Calculate function from record.py in Utils folder.
+        time = Calculate(job, time, gantt)
 
     return gantt

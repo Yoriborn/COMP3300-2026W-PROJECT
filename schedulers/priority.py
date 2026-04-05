@@ -1,5 +1,5 @@
 # ----- Object Imports ----- #
-from utilitys.record import Help
+from Utils.record import Calculate
 
 # ----- Support Function ----- #
 def P_Keys(job):
@@ -38,8 +38,8 @@ def P(jobs):
         # [STEP 3]: Select the job with the lowest 'priority' number.
         job = available[0]
 
-        # [STEP 4]: Run Help function from utilitys.
-        time = Help(job, time, gantt)
+        # [STEP 4]: Run Calculate function from record.py in Utils folder.
+        time = Calculate(job, time, gantt)
 
         # [STEP 5]: Remove the current job so it does not run again.
         jobs.remove(job)
