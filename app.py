@@ -8,38 +8,46 @@ from Utils.metrics import Metrics
 
 # ----- Module Imports ----- #
 import json
-import sys
-import copy
 
 # ----- Main Functions ----- #
 def Main():
-    data = json.load(sys.stdin)
 
-    policy = data["policy"]
-    jobs = data["jobs"]
+    # [STEP 1]: Open and 'r' Read 'input.json'.
+    with open("input.json", "r") as f:
+        input = json.load(f)
 
-    process = copy.deepcopy(jobs)
+    policy = input["policy"]
+    jobs = input["jobs"]
 
+    # [STEP 2]: Select scheduling policy.
     if policy == "FIFO":
-        gantt = FIFO(process)
+        gantt = FIFO(jobs)
+
     elif policy == "SJF":
-        gantt = SJF(process)
+        gantt = SJF(jobs)
+
     elif policy == "RR":
-        gantt = RR(process, data["quantum"])
+        gantt = RR(jobs, input["quantum"])
+
     elif policy == "PRIORITY":
-        gantt = P(process)
+        gantt = P(jobs)
+
     else:
         raise ValueError
     
-    metrics = Metrics(process)
+    # [STEP 3]: Run Metrics function from metrics.py in Utils folder.
+    metrics = Metrics(jobs)
 
+    # [STEP 4]: Create the output.
     output = {
         "policy": policy,
         "gantt" : gantt,
         "metrics": metrics
     }
 
-    print(json.dumps(output, indent=2))
+    # [STEP 5]: Open and 'w' Write to 'output.json'.
+    with open("output.json", "w") as f:
+        json.dump(output, f, indent=2)
 
 if __name__ == "__main__":
     Main()
