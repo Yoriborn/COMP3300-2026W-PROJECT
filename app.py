@@ -1,42 +1,23 @@
 # ----- Object Imports ----- #
-from schedulers.first_in_first_out import FIFO
-from schedulers.shortest_job_first import SJF
-from schedulers.round_robin import RR
-from schedulers.priority import P
+from Schedulers.first_in_first_out import FIFO
+from Schedulers.shortest_job_first import SJF
+from Schedulers.round_robin import RR
+from Schedulers.priority import P
+
+from Utils.metrics import Metrics
 
 # ----- Module Imports ----- #
 import json
 import sys
+import copy
 
 # ----- Main Functions ----- #
-def Metrics(jobs):
-    turnaround = {}
-    waiting = {}
-
-    for job in jobs:
-        TAT = job["completion"] - job["arrival"]    # TAT = Turnaround Time
-        WT = TAT - job["burst"]                     #  WT = Waiting Time
-
-        turnaround[job["pid"]] = TAT
-        waiting[job["pid"]] = WT
-
-    avg_TAT = sum(turnaround.values()) / len(jobs)
-    avg_WT = sum(waiting.values()) / len(jobs)
-
-    return {
-        "turnaround" : turnaround,
-        "waiting" : waiting,
-        "avg_turnaround" : round(avg_TAT, 2),
-        "avg_waiting" : round(avg_WT, 2)
-    }
-
 def Main():
     data = json.load(sys.stdin)
 
     policy = data["policy"]
     jobs = data["jobs"]
 
-    import copy
     process = copy.deepcopy(jobs)
 
     if policy == "FIFO":
@@ -54,11 +35,11 @@ def Main():
 
     output = {
         "policy": policy,
-        "gantt" : gantt[:2],
+        "gantt" : gantt,
         "metrics": metrics
     }
 
-    print(json.dumps(output, indent=2, separators=(',', ': ')))
+    print(json.dumps(output, indent=2))
 
 if __name__ == "__main__":
     Main()

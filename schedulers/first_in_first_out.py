@@ -1,5 +1,5 @@
 # ----- Object Imports ----- #
-from Utils.record import Calculate
+from Utils.record import Record
 
 # ----- Support Functions ----- #
 def FIFO_Keys(job):
@@ -23,6 +23,6 @@ def FIFO(jobs):
             time = job["arrival"]
 
         # [STEP 4]: Run Calculate function from record.py in Utils folder.
-        time = Calculate(job, time, gantt)
+        time = Record(job, time, gantt)
 
     return gantt

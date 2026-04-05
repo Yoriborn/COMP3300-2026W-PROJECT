@@ -1,5 +1,5 @@
 # ----- Record Function ----- #
-def Calculate(job, time, gantt):
+def Record(job, time, gantt):
     # [STEP 1]: Calculates the Start & End times.
     start = time
     end = start + job["burst"]
