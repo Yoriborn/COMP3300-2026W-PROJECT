@@ -23,16 +23,17 @@ def SJF(jobs):
 
         # [OPTION 2]: If no jobs available, move 'time' forward to next 'arrival' time.
         if not available:
-            fastfoward = jobs[0]["arrival"]
+            fastforward = jobs[0]["arrival"]
 
             for job in jobs:
-                if job["arrival"] < fastfoward:
-                    fastfoward = job["arrival"]
+                if job["arrival"] < fastforward:
+                    fastforward = job["arrival"]
 
-            time = fastfoward
+            time = fastforward
             continue
 
         # [STEP 2]: Sort jobs by 'burst' time first, 'pid' second.
+            # Shorter the burst time = Higher the scheduling priority
         available.sort(key = SJF_Keys)
 
         # [STEP 3]: Select job with shortest 'burst' time.
