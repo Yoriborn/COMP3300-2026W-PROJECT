@@ -33,7 +33,7 @@ def P(jobs):
             continue
 
         # [STEP 2]: Sort jobs by 'priority' number first, 'pid' second.
-            # Lower the number = Higher the priority.
+            # Lower the number = Higher the priority
         available.sort(key = P_Keys)
 
         # [STEP 3]: Select the job with the lowest 'priority' number.
