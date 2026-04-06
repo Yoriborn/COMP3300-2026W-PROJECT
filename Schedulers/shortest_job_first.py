@@ -33,7 +33,6 @@ def SJF(jobs):
             continue
 
         # [STEP 2]: Sort jobs by 'burst' time first, 'pid' second.
-            # Shorter the burst time = Higher the scheduling priority
         available.sort(key = SJF_Keys)
 
         # [STEP 3]: Select job with shortest 'burst' time.
