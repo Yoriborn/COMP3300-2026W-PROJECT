@@ -19,7 +19,6 @@ def Metrics(jobs):
     avg_turnaround = sum(turnaround_time.values()) / len(jobs)
     avg_waiting = sum(waiting_time.values()) / len(jobs)
 
-    # [STEP 3]: Return calculations to app.py
     return {
         "turnaround" : turnaround_time,
         "waiting" : waiting_time,
