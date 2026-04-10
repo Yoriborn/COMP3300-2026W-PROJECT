@@ -30,9 +30,9 @@ Explanation:
       jobs are inserted into the queue first, with the smaller PID being a Tie-Breaker (Note, the FIFO-Queue takes over after sort).
 
     As per the Rubric, AI tools were accessible to be used to assist development.
-    AI was used to help me with the RR algorithm. While I did understand the premise of Round Robin, I did not understand how to implement it into
-    a coding (specifically python) format. After been giving a brief explanation (understanding a queue), I was then able to implement the 
-    Round Robin algorithm into my code with a better understanding.
+    AI was used to help me with the RR algorithm. While I did understand the premise of Round Robin, I did not understand how to 
+    implement it into a coding (specifically python) format. After been giving a brief explanation (understanding a queue), I was 
+    then able to implement the Round Robin algorithm into my code with a better understanding.
 
 How-to-Run:
     python3 app.py < input.json > output.json
