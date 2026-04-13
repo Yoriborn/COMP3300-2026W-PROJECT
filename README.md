@@ -11,8 +11,6 @@ Explanation:
 
     The Schedulers folder holds all the scheduling policy algorithms (FIFO, SJF, Priority, and RR) while Utils folders holds code 
     that was reused (record.py) and the calculation code for the scheduling metrics (Waiting Time, Turnaround Time, and their averages).
-    The main code (app.py) was left outside so it could easily communicate with both input.json and output.json
-    This can be easily be seen as each object has an "Object Import" section so you know what and where said code is coming from.
 
     Each scheduling policy uses a "Support Function" to assist the introduction of a "Tie-Breaking policy" within its algorithm. 
     This introduces lexicographic ordering across the scheduling policies, primarily giving arrival times / burst times priority 

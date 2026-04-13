@@ -1,5 +1,5 @@
 # ----- Object Imports ----- #
-from Utils.record import Record
+from Utils.records import Records
 
 # ----- Support Functions ----- #
 def FIFO_Keys(job):
@@ -12,17 +12,17 @@ def FIFO(jobs):
     time = 0
     gantt = []
 
-    # [STEP 1]: Sort jobs by 'arrival' time first, 'pid' second.
+    # Sort jobs by 'arrival' time first, 'pid' second.
     jobs.sort(key = FIFO_Keys)
     
-    # [STEP 2]: Go through each job.
+    # Complete jobs until none left.
     for job in jobs:
 
-        # [STEP 3]: Jump forward to next job if idle.
+        # Jump forward to next job if idle.
         if time < job["arrival"]:
             time = job["arrival"]
 
-        # [STEP 4]: Run Calculate function from record.py in Utils folder.
-        time = Record(job, time, gantt)
+        # Run Calculate function from record.py in Utils folder.
+        time = Records(job, time, gantt)
 
     return gantt

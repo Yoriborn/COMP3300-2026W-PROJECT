@@ -1,5 +1,5 @@
 # ----- Object Imports ----- #
-from Utils.record import Record
+from Utils.records import Records
 
 # ----- Support Functions ----- #
 def SJF_Keys(job):
@@ -12,7 +12,7 @@ def SJF(jobs):
     time = 0
     gantt = []
 
-    # [STEP 1]: Start a while loop until all jobs are finished.
+    # Loop until all jobs are finished.
     while jobs:
         available = []
         
@@ -32,16 +32,16 @@ def SJF(jobs):
             time = fastforward
             continue
 
-        # [STEP 2]: Sort jobs by 'burst' time first, 'pid' second.
+        # Sort jobs by 'burst' time first, 'pid' second.
         available.sort(key = SJF_Keys)
 
-        # [STEP 3]: Select job with shortest 'burst' time.
+        # Select job with shortest 'burst' time.
         job = available[0]
 
-        # [STEP 4]: Run Calculate function from record.py in Utils folder.
-        time = Record(job, time, gantt)
+        # Run Calculate function from record.py in Utils folder.
+        time = Records(job, time, gantt)
 
-        # [STEP 5]: Remove the current job so it does not run again.
+        # Remove the current job so it does not run again.
         jobs.remove(job)
 
     return gantt

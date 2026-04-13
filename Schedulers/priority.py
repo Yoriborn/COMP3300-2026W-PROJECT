@@ -1,5 +1,5 @@
 # ----- Object Imports ----- #
-from Utils.record import Record
+from Utils.records import Records
 
 # ----- Support Function ----- #
 def P_Keys(job):
@@ -12,7 +12,7 @@ def P(jobs):
     time = 0
     gantt = []
 
-    # [STEP 1]: Start a while loop until all jobs are finished.
+    # Loop until all jobs are finished.
     while jobs:
         available = []
 
@@ -32,16 +32,16 @@ def P(jobs):
             time = fastforward
             continue
 
-        # [STEP 2]: Sort jobs by 'priority' number first, 'pid' second.
+        # Sort jobs by 'priority' number first, 'pid' second.
         available.sort(key = P_Keys)
 
-        # [STEP 3]: Select the job with the lowest 'priority' number.
+        # Select the job with the lowest 'priority' number.
         job = available[0]
 
-        # [STEP 4]: Run Calculate function from record.py in Utils folder.
-        time = Record(job, time, gantt)
+        # Run Calculate function from record.py in Utils folder.
+        time = Records(job, time, gantt)
 
-        # [STEP 5]: Remove the current job so it does not run again.
+        # Remove the current job so it does not run again.
         jobs.remove(job)
 
     return gantt
